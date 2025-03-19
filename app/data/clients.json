@@ -1,0 +1,58 @@
+{
+    "clients": [
+        {
+            "id": "1",
+            "name": "John Doe",
+            "age": 45,
+            "account_type": "Premium Investor",
+            "bio": "A seasoned investor with a diverse portfolio.",
+            "risk": "Moderate",
+            "goals": "Retirement Planning",
+            "image": "john.png",
+            "portfolio": {
+                "asset_classes": ["Stocks", "Bonds", "Real Estate", "Crypto"],
+                "allocation": [40, 30, 20, 10]
+            },
+            "market_trends": {
+                "dates": ["Jan", "Feb", "Mar", "Apr"],
+                "values": [100, 120, 115, 130]
+            }
+        },
+        {
+            "id": "2",
+            "name": "Jane Smith",
+            "age": 38,
+            "account_type": "High Net Worth",
+            "bio": "Focused on long-term growth and stability.",
+            "risk": "Low",
+            "goals": "Wealth Preservation",
+            "image": "jane.png",
+            "portfolio": {
+                "asset_classes": ["Bonds", "Stocks", "Gold"],
+                "allocation": [50, 30, 20]
+            },
+            "market_trends": {
+                "dates": ["Jan", "Feb", "Mar", "Apr"],
+                "values": [95, 110, 102, 108]
+            }
+        },
+        {
+            "id": "3",
+            "name": "Michael Brown",
+            "age": 50,
+            "account_type": "Venture Capitalist",
+            "bio": "A risk-taker investing heavily in emerging markets and startups.",
+            "risk": "High",
+            "goals": "Aggressive Growth",
+            "image": "michael.png",
+            "portfolio": {
+                "asset_classes": ["Tech Startups", "Crypto", "Stocks", "Private Equity"],
+                "allocation": [50, 20, 20, 10]
+            },
+            "market_trends": {
+                "dates": ["Jan", "Feb", "Mar", "Apr"],
+                "values": [105, 130, 125, 150]
+            }
+        }
+    ]
+}
