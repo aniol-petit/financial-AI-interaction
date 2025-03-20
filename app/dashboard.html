@@ -8,21 +8,74 @@
 </head>
 <body>
 
+    <!-- Background Elements (Same as Before) -->
+    <div class="background-overlay"></div>
+    <img src="assets/stock_market.gif" class="background-gif" alt="Stock Market Animation">
+
     <!-- Sidebar for Clients -->
     <div class="sidebar">
+        <button class="back-button" onclick="window.location.href='index.html'">←</button>
+
         <h2>CLIENTS</h2>
+
+        <!-- 🔍 Search Bar (New Feature) -->
+        <input type="text" id="search-bar" placeholder="Search client..." onkeyup="filterClients()">
+
         <ul id="client-list">
-            <li onclick="redirectToClient('1')">John Doe</li>
-            <li onclick="redirectToClient('2')">Jane Smith</li>
-            <li onclick="redirectToClient('3')">Michael Brown</li>
+            <li onclick="redirectToClient('1')">
+                <img src="assets/john.png" class="client-img"> <span class="client-name">John Doe</span>
+            </li>
+            <li onclick="redirectToClient('2')">
+                <img src="assets/jane.png" class="client-img"> <span class="client-name">Jane Smith</span>
+            </li>
+            <li onclick="redirectToClient('3')">
+                <img src="assets/michael.png" class="client-img"> <span class="client-name">Michael Brown</span>
+            </li>
         </ul>
-        <button class="back-button" onclick="history.back()">← Back</button>
     </div>
 
-    <!-- Script to handle client clicks -->
+    <!-- Crypto Ticker (Same as Before) -->
+    <div class="crypto-ticker">
+        <div class="ticker-content">
+            <span><img src="assets/bitcoin.png" class="crypto-logo"> BTC: $63,500</span>
+            <span><img src="assets/ethereum.png" class="crypto-logo"> ETH: $3,400</span>
+            <span><img src="assets/apple.png" class="crypto-logo"> AAPL: $150.34</span>
+            <span><img src="assets/tesla.png" class="crypto-logo"> TSLA: $250.12</span>
+            <span><img src="assets/microsoft.png" class="crypto-logo"> MSFT: $320.80</span>
+            <span><img src="assets/google.png" class="crypto-logo"> GOOGL: $2750.10</span>
+            <span><img src="assets/cardano.png" class="crypto-logo"> ADA: $1.25</span>
+            <span><img src="assets/solana.png" class="crypto-logo"> SOL: $150.75</span>
+            <span><img src="assets/ripple.png" class="crypto-logo"> XRP: $0.85</span>
+        </div>
+    </div>
+
     <script>
         function redirectToClient(clientId) {
-            window.location.href = `client.html?client=${clientId}`;
+            fetch("data/clients.json")
+            .then(response => response.json())
+            .then(data => {
+                const client = data.clients.find(c => c.id === clientId);
+                if (client) {
+                    localStorage.setItem("selectedClient", JSON.stringify(client));
+                    window.location.href = `client.html`;
+                }
+            })
+            .catch(error => console.error("Error loading client data:", error));
+        }
+
+        function filterClients() {
+            let input = document.getElementById("search-bar").value.toUpperCase();
+            let list = document.getElementById("client-list");
+            let clients = list.getElementsByTagName("li");
+
+            for (let i = 0; i < clients.length; i++) {
+                let name = clients[i].getElementsByClassName("client-name")[0].innerText.toUpperCase();
+                if (name.indexOf(input) > -1) {
+                    clients[i].style.display = "";
+                } else {
+                    clients[i].style.display = "none";
+                }
+            }
         }
     </script>
 

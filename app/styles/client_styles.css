@@ -1,0 +1,115 @@
+/* GENERAL STYLES */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: rgba(5, 5, 25, 0.95); /* ✅ Dark Navy Blue */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* BACK BUTTON (WHITE ARROW, NO BACKGROUND) */
+.back-button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.back-button:hover {
+    background: rgba(0, 44, 102, 0.3)
+}
+
+/* CLIENT INFO CONTAINER */
+.client-info {
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 100px;
+}
+
+/* CLIENT HEADER */
+.client-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: -75px;
+}
+
+/* CLIENT IMAGE */
+.client-image {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+/* CLIENT DETAILS */
+.client-details {
+    text-align: left;
+}
+
+/* CLIENT NAME & AGE - Times New Roman, Yellow */
+.client-name, .client-age {
+    font-family: 'Times New Roman', serif; /* ✅ Times New Roman */
+    font-size: 36px;
+    font-weight: bold;
+    color: #FFD700; /* ✅ Yellow */
+    margin: 0;
+}
+
+/* CLIENT AGE */
+.client-age {
+    font-size: 25px;
+    margin-top: 5px;
+}
+
+/* CLIENT WINDOWS CONTAINER */
+.client-windows {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    margin-top: 40px;
+    width: 90%;
+}
+
+/* CLIENT WINDOWS (Dark Blue, Yellow Text) */
+.client-window {
+    text-transform: uppercase;
+    background-color: rgba(5, 5, 25, 0.95); /* ✅ Dark Navy Blue */
+    border: 2px solid #FFD700; /* ✅ Yellow Border */
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    height: 150px;
+    color: #FFD700; /* ✅ Yellow */
+}
+
+/* HOVER EFFECT - Slight Glow */
+.client-window:hover {
+    background-color: #002244; /* ✅ Lighter Navy Blue */
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px #FFD700; /* ✅ Yellow Glow Effect */
+}
+
+/* CLIENT WINDOW TEXT */
+.client-window h2 {
+    font-family: 'Times New Roman', serif; /* ✅ Times New Roman */
+    font-size: 24px;
+    font-weight: bold;
+}
