@@ -1,6 +1,6 @@
 /* GENERAL STYLES */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Georgia', sans-serif;
     margin: 0;
     padding: 0;
     background: black;
@@ -48,22 +48,22 @@ body {
 
 /* WELCOME TEXT - DARKER YELLOW */
 .landing-title {
-    font-family: 'Times New Roman', serif; /* ✅ Times New Roman */
-    font-size: 60px; /* ✅ Large */
-    font-weight: 900; /* ✅ Bold */
-    color: #FFD700; /* ✅ Darker Yellow (Gold) */
+    font-family: 'Georgia', serif;
+    font-size: 60px; 
+    font-weight: 900; 
+    color: #FFD700;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
 /* START BUTTON - YELLOW BACKGROUND, BLACK TEXT */
 .start-button {
-    background: #FFD700; /* ✅ Darker Yellow (Gold) */
+    background: #FFD700; 
     border: none;
-    color: #002244; /* ✅ Black Text */
-    font-family: 'Times New Roman', serif; /* ✅ Times New Roman */
+    color: #002244; 
+    font-family: 'Georgia', serif; 
     font-size: 20px;
-    font-weight: bold; /* ✅ Bold */
+    font-weight: bold; 
     padding: 18px 30px;
     border-radius: 10px;
     cursor: pointer;
