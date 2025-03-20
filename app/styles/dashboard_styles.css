@@ -1,0 +1,68 @@
+/* GENERAL STYLES */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #121212; /* Dark theme */
+    color: #E0E0E0;
+    display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 250px;
+    background: #1E1E1E; /* Dark sidebar */
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* CLIENT HEADER */
+.sidebar h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #00D4FF; /* Wealth manager theme color */
+}
+
+/* CLIENT LIST */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.sidebar ul li:hover {
+    background: #333;
+    transform: scale(1.05);
+}
+
+/* BACK BUTTON */
+.back-button {
+    background: #00D4FF;
+    border: none;
+    color: white;
+    padding: 12px 18px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: auto;
+}
+
+.back-button:hover {
+    background: #0099cc;
+}

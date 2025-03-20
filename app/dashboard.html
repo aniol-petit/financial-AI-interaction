@@ -3,21 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wealth Manager Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Client Dashboard</title>
+    <link rel="stylesheet" href="styles/dashboard_styles.css">
 </head>
 <body>
 
+    <!-- Sidebar for Clients -->
     <div class="sidebar">
-        <h2>Wealth Manager</h2>
-        <ul id="client-list"></ul>
+        <h2>CLIENTS</h2>
+        <ul id="client-list">
+            <li onclick="redirectToClient('1')">John Doe</li>
+            <li onclick="redirectToClient('2')">Jane Smith</li>
+            <li onclick="redirectToClient('3')">Michael Brown</li>
+        </ul>
+        <button class="back-button" onclick="history.back()">← Back</button>
     </div>
 
-    <div class="main-content">
-        <h1>Welcome, Wealth Manager</h1>
-        <p>Select a client to view their financial details.</p>
-    </div>
+    <!-- Script to handle client clicks -->
+    <script>
+        function redirectToClient(clientId) {
+            window.location.href = `client.html?client=${clientId}`;
+        }
+    </script>
 
-    <script src="script.js"></script>
 </body>
 </html>

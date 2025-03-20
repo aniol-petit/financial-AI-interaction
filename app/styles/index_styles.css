@@ -1,0 +1,108 @@
+/* GENERAL STYLES */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: white;
+    overflow: hidden;
+}
+
+/* BACKGROUND STOCK GIF */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.background-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* DARK OVERLAY TO IMPROVE TEXT VISIBILITY */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Light transparent dark layer */
+    z-index: 0;
+}
+
+/* LANDING PAGE CONTENT (PERFECT CENTER) */
+.landing-content {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+/* WELCOME TEXT */
+.landing-title {
+    font-size: 60px;
+    font-weight: 900;
+    color: #ffffff; /* Bright white */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* START BUTTON */
+.start-button {
+    background: #00D4FF;
+    border: none;
+    color: white;
+    padding: 18px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 20px;
+}
+
+.start-button:hover {
+    background: #0099cc;
+}
+
+/* CRYPTO TICKER */
+.crypto-ticker {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    color: #00D4FF;
+    font-size: 16px;
+    white-space: nowrap;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ticker-content {
+    display: flex;
+    gap: 30px;
+    animation: scrollTicker 15s linear infinite;
+}
+
+@keyframes scrollTicker {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+/* CRYPTO LOGOS */
+.crypto-logo {
+    height: 18px;
+    width: 18px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
