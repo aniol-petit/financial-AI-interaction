@@ -41,16 +41,19 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-        const clientData = JSON.parse(localStorage.getItem("selectedClient"));
-        if (clientData) {
-            document.getElementById("client-name").textContent = clientData.name;
-            document.getElementById("client-image").src = `assets/${clientData.image}`;
-            document.getElementById("client-age").textContent = `Age: ${clientData.age}`;
-        } else {
-            console.error("No client data found.");
-        }
-    });
+            const clientData = JSON.parse(localStorage.getItem("selectedClient")); // Get latest stored data
+            if (clientData) {
+                document.getElementById("client-name").textContent = clientData.name;
+                document.getElementById("client-image").src = `assets/${clientData.image}`;
+                document.getElementById("client-age").textContent = `${clientData.age} years`;
+                document.getElementById("risk-level").textContent = clientData.risk;
+                document.getElementById("investment-goals").textContent = clientData.goals;
+            } else {
+                console.error("No client data found.");
+            }
+        });
     </script>
+    
 
 </body>
 </html>
