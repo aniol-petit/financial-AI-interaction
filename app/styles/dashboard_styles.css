@@ -10,9 +10,9 @@ body {
     overflow: hidden; /* 🚫 Disable scrolling */
 }
 
-/* BACKGROUND GIF */
+/* BACKGROUND GIF */ 
 .background-gif {
-    position: fixed;
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
@@ -38,7 +38,7 @@ body {
     text-transform: uppercase;
     width: 270px;
     background: #002244; /* Even Darker Blue */
-    font-family: 'Helvetica', serif;
+    font-family: 'Helvetica', Times, serif;
     color: #FFD700;
     padding: 20px;
     height: 100vh;
@@ -76,7 +76,7 @@ body {
 .sidebar h2 {
     font-size: 22px;
     font-weight: bold;
-    font-family: 'Helvetica', serif;
+    font-family: 'Helvetica', Times, serif;
     margin-bottom: 20px;
     text-align: center;
     color: #FFD700; /* Slightly Brighter Dark Blue */
