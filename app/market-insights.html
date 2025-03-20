@@ -31,6 +31,12 @@
         </div>
     </div>
 
+    <!-- Macroeconomic Insights -->
+    <div class="macro-insights">
+        <h2 class="macro-title">🌍 MACROECONOMIC TRENDS</h2>
+        <ul id="macro-trends-list"></ul>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Get client data from localStorage
@@ -44,6 +50,24 @@
                     "3": { best: "BTC", worst: "TSLA" } // Michael Brown
                 };
 
+                // Macroeconomic Insights per Client
+                const macroTrends = {
+                    "1": [
+                        { text: "Crypto Market Volatility: Bitcoin and Ethereum face swings due to ETF approvals.", assets: "BTC, ETH" },
+                        { text: "Real Estate Market Slowdown: Rising interest rates lower valuations, rentals stable.", assets: "Luxury Apartment - NYC, Commercial Plaza - LA" }
+                    ],
+                    "2": [
+                        { text: "Gold Rally Amid Inflation: Investors push prices higher.", assets: "Gold ETF, Physical Gold" },
+                        { text: "Bond Market Stability: US Treasuries attract capital, corporate bonds remain steady.", assets: "US Government Bonds, Corporate Bonds" },
+                        { text: "Consumer Goods Demand: Strong earnings for P&G and J&J despite inflation.", assets: "PG, JNJ" }
+                    ],
+                    "3": [
+                        { text: "Tech Boom & AI Growth: Nvidia and Amazon thrive with AI expansion.", assets: "NVDA, AMZN" },
+                        { text: "Crypto Regulation Tightens: Stricter rules increase Bitcoin and Ethereum volatility.", assets: "BTC, ETH, SOL" },
+                        { text: "Startup Funding Resilience: Stripe and SpaceX attract strong investor interest.", assets: "Stripe, SpaceX" }
+                    ]
+                };
+
                 const clientId = clientData.id;
 
                 if (stockMappings[clientId]) {
@@ -53,6 +77,15 @@
                     document.getElementById("best-stock-name").textContent = stockMappings[clientId].best;
                     document.getElementById("worst-stock-name").textContent = stockMappings[clientId].worst;
                 }
+
+                // Insert Macroeconomic Insights
+                const macroList = document.getElementById("macro-trends-list");
+                macroTrends[clientId].forEach(trend => {
+                    let listItem = document.createElement("li");
+                    listItem.innerHTML = `<span class="bullet">•</span> <strong>${trend.text}</strong><br>
+                    <span class="macro-assets"><span class="client-assets-label">Assets involved: </span>${trend.assets}</span>`;
+                    macroList.appendChild(listItem);
+                });
             }
         });
     </script>

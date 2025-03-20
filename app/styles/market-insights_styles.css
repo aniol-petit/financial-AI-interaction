@@ -1,16 +1,3 @@
-/* GENERAL STYLES */
-body {
-    font-family: 'Helvetica', Times, serif;
-    text-transform: uppercase;
-    margin: 0;
-    padding: 0;
-    background: #04071B; /* Darker blue for better contrast */
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 /* BACK BUTTON */
 .back-button {
     background: none;
@@ -21,15 +8,29 @@ body {
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
-    position: absolute;
+    position: fixed; /* Fix it to stay in place */
     top: 20px;
-    left: 20px;
-    z-index: 10;
+    left: 20px; /* Ensure it aligns to the left */
+    z-index: 100; /* Keep it on top of other elements */
     transition: background 0.3s ease;
 }
 
 .back-button:hover {
     background: rgba(0, 44, 102, 0.3);
+}
+
+
+/* GENERAL STYLES */
+body {
+    font-family: 'Arial Narrow', Times, serif;
+    
+    margin: 0;
+    padding: 0;
+    background: #04071B; /* Darker blue for contrast */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* MARKET INSIGHTS TITLE */
@@ -45,18 +46,18 @@ body {
 /* STOCK GRAPH CONTAINER */
 .stock-graphs {
     display: flex;
-    justify-content: space-evenly; /* Ensures side-by-side alignment */
+    justify-content: space-evenly;
     align-items: center;
     gap: 40px;
     margin-top: 20px;
-    width: 80%; /* Ensure full width usage */
-    flex-wrap: nowrap; /* Prevents wrapping */
+    width: 80%;
+    flex-wrap: nowrap;
 }
 
 /* INDIVIDUAL STOCK BOX */
 .stock-box {
     width: 45%;
-    max-width: 400px; /* Increased size for better visibility */
+    max-width: 350px;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.05);
     padding: 20px;
@@ -64,35 +65,62 @@ body {
     box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
 }
 
-/* ENLARGED IMAGE SIZE */
+/* STOCK IMAGE */
 .stock-image {
     width: 100%;
-    max-width: 300px; /* Bigger images */
+    max-width: 250px; /* Adjusted for better fit */
     height: auto;
     border-radius: 8px;
 }
 
-/* STOCK TITLE (Best/Worst Performing Stock) */
-.stock-title {
-    font-size: 20px;
+/* MACROECONOMIC INSIGHTS */
+.macro-insights {
+    width: 80%;
+    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+}
+
+/* MACRO TITLE */
+.macro-title {
+    font-size: 26px;
     font-weight: bold;
-    margin-bottom: 10px;
     color: #FFD700;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* STOCK CAPTION */
-.stock-caption {
+/* MACRO TREND LIST */
+#macro-trends-list {
+    list-style-type: none;
+    padding: 0;
     font-size: 18px;
-    margin-top: 10px;
+    text-align: left;
+    line-height: 1.6;
 }
 
-/* RESPONSIVENESS */
-@media (max-width: 900px) {
-    .stock-graphs {
-        flex-wrap: wrap; /* Stacks graphs vertically on smaller screens */
-    }
+/* BULLET POINTS */
+.bullet {
+    color: #FFD700;
+    font-size: 22px;
+    margin-right: 8px;
+}
 
-    .stock-box {
-        width: 80%; /* Makes sure they take up more space when stacked */
-    }
+/* MACRO TREND ASSETS */
+.macro-assets {
+    color: #FFD700;
+    font-size: 16px;
+    display: block;
+    margin-top: 5px;
+}
+
+/* CLIENT ASSETS LABEL */
+.client-assets-label {
+    color: white;
+    font-weight: bold;
 }
