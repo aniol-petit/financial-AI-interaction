@@ -86,6 +86,18 @@
         </div>
     </div>
 
+    <div class="bell-container">
+        <img src="assets/bell.png" class="client-image" id="bell" onclick="showNotification()">
+        <div id="notification-indicator"></div>
+    </div>
+    
+    <button id="trigger-alarm-btn" onclick="triggerAlarm()">⚠️</button>
+    
+    <div id="notification-box" class="notification-box">
+        <p id="notification-message">No notifications</p>
+        <button id="mark-read-btn" onclick="markAsRead()">Mark as Read</button>
+    </div>
+
     <script>
         function redirectToClient(clientId) {
             fetch("data/clients.json")
@@ -165,6 +177,58 @@
         document.addEventListener("click", () => {
             document.querySelectorAll('.menu-dropdown').forEach(menu => menu.style.display = "none");
         });
+
+        // Function to show the notification message
+        function showNotification() {
+            var notificationBox = document.getElementById('notification-box');
+            var message = document.getElementById('notification-message');
+
+            // Check if there are active notifications
+            if (document.getElementById('notification-indicator').style.display === 'block') {
+                message.textContent = "Donald Trump latest actions have caused a crypto market crash! Get all the information in the following link: [Link]. Also don't forget to alert John Doe and Michael Brown about this situation!";
+            } else {
+                message.textContent = "No notifications";
+            }
+
+            // Display the notification box
+            notificationBox.style.display = 'block';
+        }
+
+        // Function to simulate the alarm trigger
+        function triggerAlarm() {
+            var indicator = document.getElementById('notification-indicator');
+
+            // Show the red notification circle
+            indicator.style.display = 'block';
+        }
+
+        // Function to mark the message as read
+        function markAsRead() {
+            var notificationBox = document.getElementById('notification-box');
+            var indicator = document.getElementById('notification-indicator');
+            var message = document.getElementById('notification-message');
+
+            // Mark as read
+            message.textContent = "No notifications";
+
+            // Hide red circle
+            indicator.style.display = 'none';
+
+            // Hide the notification box
+            notificationBox.style.display = 'none';
+        }
+
+        // Close notification box when clicking outside
+        window.addEventListener('click', function(event) {
+            var bell = document.getElementById('bell');
+            var notificationBox = document.getElementById('notification-box');
+            var triggerButton = document.getElementById('trigger-alarm-btn');
+
+            if (!bell.contains(event.target) && !notificationBox.contains(event.target) && !triggerButton.contains(event.target)) {
+                notificationBox.style.display = 'none';
+            }
+        });
+
     </script>
 
 </body>

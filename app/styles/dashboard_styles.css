@@ -261,3 +261,114 @@ body {
     background: #ffcc00;
 }
 
+/* Position the image in the top right corner */
+.image-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Style the image */
+.client-image {
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 10px; /* Optional: Adds rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect */
+.client-image:hover {
+    transform: scale(1.1); /* Zoom in the image on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); 
+}
+
+/* Bell button container */
+.bell-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* Bell image */
+.client-image {
+    width: 80px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.client-image:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Red notification indicator */
+#notification-indicator {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 50%;
+    bottom: 5px;
+    right: 5px;
+    display: none; /* Initially hidden */
+}
+
+/* Notification box */
+.notification-box {
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 200px; /* Limit max width */
+    word-wrap: break-word; /* Break long words */
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+/* Expanding height */
+.notification-box p {
+    max-width: 100%;
+    color: #002244;
+}
+
+/* Mark as Read button */
+#mark-read-btn {
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 10px;
+    border-radius: 5px;
+    background-color: lightgreen;
+    border: none;
+    cursor: pointer;
+}
+
+/* Hover effect for Mark as Read button */
+#mark-read-btn:hover {
+    background-color: darkgreen;
+}
+
+/* Trigger button (no background) */
+#trigger-alarm-btn {
+    position: absolute;
+    top: 10px;
+    right: 120px;
+    padding: 5px;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    background: none;
+}
+
+/* Hover effect for trigger button */
+#trigger-alarm-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
