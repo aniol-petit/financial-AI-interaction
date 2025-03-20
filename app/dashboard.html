@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!-- Background Elements (Same as Before) -->
+    <!-- Background Elements -->
     <div class="background-overlay"></div>
     <img src="assets/stock_market.gif" class="background-gif" alt="Stock Market Animation">
 
@@ -18,23 +18,60 @@
 
         <h2>CLIENTS</h2>
 
-        <!-- 🔍 Search Bar (New Feature) -->
+        <!-- 🔍 Search Bar (Restored) -->
         <input type="text" id="search-bar" placeholder="Search client..." onkeyup="filterClients()">
 
         <ul id="client-list">
-            <li onclick="redirectToClient('1')">
-                <img src="assets/john.png" class="client-img"> <span class="client-name">John Doe</span>
+            <li class="client-item" data-client-id="1">
+                <img src="assets/john.png" class="client-img"> 
+                <span class="client-name" onclick="redirectToClient('1')">John Doe</span>
+                <div class="client-options">
+                    <span class="menu-icon" onclick="toggleMenu(event, 'menu-1')">⋮</span>
+                    <div class="menu-dropdown" id="menu-1">
+                        <button onclick="editClient('1')">Edit Client</button>
+                        <button onclick="deleteClient('1')">Delete Client</button>
+                    </div>
+                </div>
             </li>
-            <li onclick="redirectToClient('2')">
-                <img src="assets/jane.png" class="client-img"> <span class="client-name">Jane Smith</span>
+            <li class="client-item" data-client-id="2">
+                <img src="assets/jane.png" class="client-img"> 
+                <span class="client-name" onclick="redirectToClient('2')">Jane Smith</span>
+                <div class="client-options">
+                    <span class="menu-icon" onclick="toggleMenu(event, 'menu-2')">⋮</span>
+                    <div class="menu-dropdown" id="menu-2">
+                        <button onclick="editClient('2')">Edit Client</button>
+                        <button onclick="deleteClient('2')">Delete Client</button>
+                    </div>
+                </div>
             </li>
-            <li onclick="redirectToClient('3')">
-                <img src="assets/michael.png" class="client-img"> <span class="client-name">Michael Brown</span>
+            <li class="client-item" data-client-id="3">
+                <img src="assets/michael.png" class="client-img"> 
+                <span class="client-name" onclick="redirectToClient('3')">Michael Brown</span>
+                <div class="client-options">
+                    <span class="menu-icon" onclick="toggleMenu(event, 'menu-3')">⋮</span>
+                    <div class="menu-dropdown" id="menu-3">
+                        <button onclick="editClient('3')">Edit Client</button>
+                        <button onclick="deleteClient('3')">Delete Client</button>
+                    </div>
+                </div>
             </li>
         </ul>
     </div>
 
-    <!-- Crypto Ticker (Same as Before) -->
+    <!-- Client Edit Form (Hidden by Default) -->
+    <div id="edit-client-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Edit Client</h2>
+            <input type="text" id="edit-name" placeholder="Name">
+            <input type="number" id="edit-age" placeholder="Age">
+            <input type="text" id="edit-risk" placeholder="Risk Level">
+            <input type="text" id="edit-goals" placeholder="Financial Goals">
+            <button onclick="saveClientChanges()">Save Changes</button>
+            <button onclick="closeEditModal()">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Crypto Ticker -->
     <div class="crypto-ticker">
         <div class="ticker-content">
             <span><img src="assets/bitcoin.png" class="crypto-logo"> BTC: $63,500</span>
@@ -65,18 +102,69 @@
 
         function filterClients() {
             let input = document.getElementById("search-bar").value.toUpperCase();
-            let list = document.getElementById("client-list");
-            let clients = list.getElementsByTagName("li");
+            let clients = document.querySelectorAll(".client-item");
 
-            for (let i = 0; i < clients.length; i++) {
-                let name = clients[i].getElementsByClassName("client-name")[0].innerText.toUpperCase();
-                if (name.indexOf(input) > -1) {
-                    clients[i].style.display = "";
-                } else {
-                    clients[i].style.display = "none";
+            clients.forEach(client => {
+                let name = client.querySelector(".client-name").innerText.toUpperCase();
+                client.style.display = name.includes(input) ? "" : "none";
+            });
+        }
+
+        function toggleMenu(event, menuId) {
+            event.stopPropagation();
+            document.querySelectorAll('.menu-dropdown').forEach(menu => {
+                if (menu.id !== menuId) menu.style.display = "none";
+            });
+            let menu = document.getElementById(menuId);
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+
+        function editClient(clientId) {
+            fetch("data/clients.json")
+            .then(response => response.json())
+            .then(data => {
+                const client = data.clients.find(c => c.id === clientId);
+                if (client) {
+                    document.getElementById("edit-name").value = client.name;
+                    document.getElementById("edit-age").value = client.age;
+                    document.getElementById("edit-risk").value = client.risk;
+                    document.getElementById("edit-goals").value = client.goals;
+
+                    document.getElementById("edit-client-modal").classList.remove("hidden");
+                    document.getElementById("edit-client-modal").setAttribute("data-client-id", clientId);
                 }
+            })
+            .catch(error => console.error("Error loading client data:", error));
+        }
+
+        function saveClientChanges() {
+            let clientId = document.getElementById("edit-client-modal").getAttribute("data-client-id");
+            let newName = document.getElementById("edit-name").value;
+            let newAge = document.getElementById("edit-age").value;
+            let newRisk = document.getElementById("edit-risk").value;
+            let newGoals = document.getElementById("edit-goals").value;
+
+            let client = document.querySelector(`.client-item[data-client-id="${clientId}"]`);
+            client.querySelector(".client-name").textContent = newName;
+
+            closeEditModal();
+        }
+
+        function closeEditModal() {
+            document.getElementById("edit-client-modal").classList.add("hidden");
+        }
+
+        function deleteClient(clientId) {
+            let confirmation = confirm("Are you sure you want to delete this client?");
+            if (confirmation) {
+                document.querySelector(`.client-item[data-client-id="${clientId}"]`).remove();
+                alert("Client removed successfully!");
             }
         }
+
+        document.addEventListener("click", () => {
+            document.querySelectorAll('.menu-dropdown').forEach(menu => menu.style.display = "none");
+        });
     </script>
 
 </body>

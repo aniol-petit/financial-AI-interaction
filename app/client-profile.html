@@ -5,49 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client Profile</title>
     <link rel="stylesheet" href="styles/client-profile_styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js for graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-    <!-- Back to Client Dashboard Button -->
-    <button class="back-button" onclick="window.location.href='client.html'">←</button>
+    <!-- Sidebar for Client Details -->
+    <div class="sidebar">
+        <button class="back-button" onclick="window.location.href='client.html'">←</button>
+        <h1 id="client-name" class="profile-title"></h1>
+        <img id="client-image" class="client-image" src="" alt="Client Image">
 
-    <!-- Client Profile Section -->
-    <div class="client-profile">
-        <h1 id="client-name">CLIENT PROFILE</h1>
-
-        <!-- Portfolio Pie Chart -->
-        <div class="chart-container">
-            <h2>Portfolio Breakdown</h2>
-            <canvas id="portfolioChart"></canvas>
+        <div class="client-info">
+            <p><strong>Age:</strong> <span id="client-age"></span></p>
+            <p><strong>Net Worth:</strong> <span id="net-worth"></span></p>
+            <p><strong>Risk Level:</strong> <span id="risk-level"></span></p>
+            <p><strong>Financial Goals:</strong> <span id="investment-goals"></span></p>
         </div>
+    </div>
 
-        <!-- Portfolio Performance Chart -->
-        <div class="chart-container">
-            <h2>Portfolio Performance</h2>
-            <canvas id="performanceChart"></canvas>
-        </div>
+    <!-- Main Content for Graphs -->
+    <div class="content-area">
+        <div class="chart-wrapper">
+            <div class="chart-container">
+                <h2>Portfolio Breakdown</h2>
+                <canvas id="portfolioChart"></canvas>
+            </div>
 
-        <!-- Net Worth & Financial Information -->
-        <div class="financial-info">
-            <div class="info-box">
-                <h2>Net Worth</h2>
-                <p id="net-worth">$0</p>
+            <div class="chart-container">
+                <h2>Portfolio Performance</h2>
+                <canvas id="performanceChart"></canvas>
             </div>
-            <div class="info-box">
-                <h2>Risk Level</h2>
-                <p id="risk-level"></p>
-            </div>
-            <div class="info-box">
-                <h2>Financial Goals</h2>
-                <p id="investment-goals"></p>
-            </div>
-        </div>
-
-        <!-- Smart Summaries from AI -->
-        <div class="smart-summary">
-            <h2>Smart Summaries</h2>
-            <p id="market-insights">Fetching insights...</p>
         </div>
     </div>
 
@@ -56,14 +43,15 @@
             const clientData = JSON.parse(localStorage.getItem("selectedClient"));
 
             if (clientData) {
-                document.getElementById("client-name").textContent = `${clientData.name}'s Profile`;
+                document.getElementById("client-name").textContent = clientData.name;
+                document.getElementById("client-image").src = `assets/${clientData.image}`;
+                document.getElementById("client-age").textContent = `${clientData.age} years`;
                 document.getElementById("risk-level").textContent = clientData.risk;
                 document.getElementById("investment-goals").textContent = clientData.goals;
                 document.getElementById("net-worth").textContent = `$${(Math.random() * 5000000 + 500000).toFixed(2)}`;
 
                 loadPortfolioChart(clientData.portfolio);
                 loadPerformanceChart(clientData.market_trends);
-                fetchMarketInsights(clientData.portfolio.asset_classes);
             }
         });
 
@@ -78,6 +66,18 @@
                         data: portfolio.allocation,
                         backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"]
                     }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: "#FFD700",
+                                font: { size: 14, family: "Times New Roman" }
+                            }
+                        }
+                    }
                 }
             });
         }
@@ -93,43 +93,24 @@
                         label: "Portfolio Value",
                         data: market_trends.values,
                         borderColor: "#FFD700",
-                        fill: false
+                        backgroundColor: "rgba(255, 215, 0, 0.2)",
+                        borderWidth: 2,
+                        pointRadius: 4,
+                        pointBackgroundColor: "#FFD700",
+                        fill: true
                     }]
-                }
-            });
-        }
-
-        // Fetch Market Insights using API
-        function fetchMarketInsights(sectors) {
-            fetch("http://localhost:3000/proxy-llm", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ sectors: sectors })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.tool_calls) {
-                    const bestSectorCall = data.tool_calls.find(call => call.args.list_type === "Winner By Market");
-                    const worstSectorCall = data.tool_calls.find(call => call.args.list_type === "Loser By Market");
-
-                    let bestSector = bestSectorCall ? bestSectorCall.args.market : "N/A";
-                    let worstSector = worstSectorCall ? worstSectorCall.args.market : "N/A";
-
-                    if (bestSector === worstSector) {
-                        worstSector = "N/A";
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { ticks: { color: "#FFD700", font: { family: "Times New Roman" } } },
+                        y: { ticks: { color: "#FFD700", font: { family: "Times New Roman" } } }
+                    },
+                    plugins: {
+                        legend: { labels: { color: "#FFD700", font: { family: "Times New Roman" } } }
                     }
-
-                    document.getElementById("market-insights").innerHTML = `
-                        <img src="assets/uptrend.png" width="20"> <strong>Best:</strong> ${bestSector},
-                        <img src="assets/downtrend.png" width="20"> <strong>Worst:</strong> ${worstSector}
-                    `;
-                } else {
-                    document.getElementById("market-insights").textContent = "No insights available.";
                 }
-            })
-            .catch(error => {
-                console.error("❌ Error fetching market insights:", error);
-                document.getElementById("market-insights").textContent = "Failed to fetch market insights.";
             });
         }
     </script>
