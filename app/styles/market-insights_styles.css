@@ -36,8 +36,11 @@ body {
 .window-content {
     text-align: center;
     margin-top: 100px;
+    width: 90%;
+    max-width: 800px;
 }
 
+/* MARKET INSIGHTS TITLE */
 .window-content h1 {
     font-size: 36px;
     color: #FFD700;
@@ -45,9 +48,50 @@ body {
     margin-bottom: 20px;
 }
 
-.window-content p {
-    font-size: 18px;
-    color: #cccccc;
-    width: 80%;
-    margin: 0 auto;
+/* MARKET INSIGHTS SUBTITLE */
+.window-content h2 {
+    font-size: 22px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+/* STOCK GRAPH CONTAINER */
+.stock-graphs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* INDIVIDUAL STOCK BOX */
+.stock-box {
+    width: 40%; /* Adjust width for balance */
+    max-width: 300px; /* Limit max width */
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+/* IMAGE SIZE SETTINGS */
+.stock-image {
+    width: 100%;
+    max-width: 200px; /* Smaller size */
+    height: auto;
+    border-radius: 8px;
+}
+
+/* STOCK TITLE (Best/Worst Performing Stock) */
+.stock-title {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+/* STOCK CAPTION */
+.stock-caption {
+    font-size: 0.9rem;
+    margin-top: 5px;
 }

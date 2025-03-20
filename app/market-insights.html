@@ -11,21 +11,52 @@
     <!-- Back to Client Profile Button -->
     <button class="back-button" onclick="window.location.href='client.html'">←</button>
 
-    <!-- Window Content -->
-    <div class="window-content">
-        <h1>CLIENT PROFILE</h1>
-        <p>This window will display information retrieved via API in the future. For now, it's just a placeholder.</p>
+    <!-- Container for Stock Performance Graphs -->
+    <div class="market-insights-container">
+        <h1 class="section-title">Market Insights</h1>
+
+        <div class="stock-graphs">
+            <!-- Best Performing Stock -->
+            <div class="stock-box">
+                <h2 class="stock-title">Best Performing Stock</h2>
+                <img id="best-stock-img" src="" class="stock-image" alt="Best Stock Performance">
+                <p class="stock-caption">📈 The best performing stock is <span id="best-stock-name"></span>.</p>
+            </div>
+
+            <!-- Worst Performing Stock -->
+            <div class="stock-box">
+                <h2 class="stock-title">Worst Performing Stock</h2>
+                <img id="worst-stock-img" src="" class="stock-image" alt="Worst Stock Performance">
+                <p class="stock-caption">📉 The worst performing stock is <span id="worst-stock-name"></span>.</p>
+            </div>
+        </div>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // Get client data from localStorage
             const clientData = JSON.parse(localStorage.getItem("selectedClient"));
+
             if (clientData) {
-                document.querySelector("h1").textContent = `${clientData.name}'s Profile`;
+                // Map client ID to best and worst stock images
+                const stockMappings = {
+                    "1": { best: "BTC", worst: "ETH" },  // John Doe
+                    "2": { best: "GLD", worst: "PG" },  // Jane Smith
+                    "3": { best: "BTC", worst: "TSLA" } // Michael Brown
+                };
+
+                const clientId = clientData.id;
+
+                if (stockMappings[clientId]) {
+                    document.getElementById("best-stock-img").src = `assets/best_${clientId}.png`;
+                    document.getElementById("worst-stock-img").src = `assets/worst_${clientId}.png`;
+
+                    document.getElementById("best-stock-name").textContent = stockMappings[clientId].best;
+                    document.getElementById("worst-stock-name").textContent = stockMappings[clientId].worst;
+                }
             }
         });
     </script>
-    
 
 </body>
 </html>
