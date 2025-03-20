@@ -3,34 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js for graphs -->
+    <title>Client Profile</title>
+    <link rel="stylesheet" href="styles/client_styles.css">
 </head>
 <body>
 
+<<<<<<< Updated upstream
     <div class="sidebar">
         <a href="dashboard.html">← Back to Dashboard</a>
     </div>
+=======
+    <!-- Back to Dashboard Button -->
+    <button class="back-button" onclick="window.location.href='dashboard.html'">←</button>
+>>>>>>> Stashed changes
 
-    <div class="main-content">
+    <!-- Client Profile Information -->
+    <div class="client-info">
+        <!-- Client Name and Picture -->
         <div class="client-header">
+<<<<<<< Updated upstream
             <img id="client-img" class="client-img-large"> 
             <div>
                 <h1 id="client-name"></h1>
                 <p><strong>Age:</strong> <span id="client-age"></span></p>
                 <p><strong>Account Type:</strong> <span id="account-type"></span></p>
                 <p><strong>Bio:</strong> <span id="client-bio"></span></p>
+=======
+            <img id="client-image" class="client-image" src="" alt="Client Image">
+            <div class="client-details">
+                <h1 id="client-name" class="client-name"></h1>
+                <p id="client-age" class="client-age"></p> <!-- Added age here -->
+>>>>>>> Stashed changes
             </div>
         </div>
-
-        <h2>Portfolio Breakdown</h2>
-        <canvas id="portfolioChart"></canvas>
-
-        <h2>Market Trends</h2>
-        <canvas id="marketChart"></canvas>
     </div>
 
-    <script src="charts.js"></script>
+    <!-- Client Information Windows -->
+    <div class="client-windows">
+        <div class="client-window" onclick="window.location.href='window1.html'">
+            <h2>Window 1</h2>
+        </div>
+        <div class="client-window" onclick="window.location.href='window2.html'">
+            <h2>Window 2</h2>
+        </div>
+        <div class="client-window" onclick="window.location.href='window3.html'">
+            <h2>Window 3</h2>
+        </div>
+        <div class="client-window" onclick="window.location.href='window4.html'">
+            <h2>Window 4</h2>
+        </div>
+    </div>
+
+    <script>
+        // Get client data from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const clientId = urlParams.get('client');
+
+        fetch("data/clients.json")
+            .then(response => response.json())
+            .then(data => {
+                const client = data.clients.find(c => c.id === clientId);
+
+                if (client) {
+                    document.getElementById("client-name").textContent = client.name;
+                    document.getElementById("client-image").src = `assets/${client.image}`;
+                    document.getElementById("client-age").textContent = `Age: ${client.age}`;  <!-- Added age data -->
+                }
+            })
+            .catch(error => console.error("Error loading client data:", error));
+    </script>
+
 </body>
 </html>
