@@ -3,22 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wealth Manager Dashboard</title>
+    <title>Wealth Manager</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="landing-page">
 
-    <div class="sidebar">
-        <h2>Wealth Manager</h2>
+    <div class="landing-container">
+        <h1 class="landing-title">WELCOME, WEALTH MANAGER</h1>
 
-        <ul id="client-list"></ul>
+        <div class="stock-animation">
+            <img src="assets/stock-animation.gif" alt="Stock Analytics" class="animated-bg">
+        </div>
+
+        <button class="start-btn" onclick="enterDashboard()">START</button>
+
+        <div class="ticker-container">
+            <div class="ticker">
+                <img src="assets/bitcoin.png" class="crypto-icon"> BTC: $63,500
+                <img src="assets/ethereum.png" class="crypto-icon"> ETH: $3,400
+                <img src="assets/apple.png" class="crypto-icon"> AAPL: $150.34
+                <img src="assets/tesla.png" class="crypto-icon"> TSLA: $250.12
+                <img src="assets/microsoft.png" class="crypto-icon"> MSFT: $320.80
+                <img src="assets/google.png" class="crypto-icon"> GOOGL: $2750.10
+            </div>
+        </div>
     </div>
 
-    <div class="main-content">
-        <h1>Welcome, Wealth Manager</h1>
-        <p>Select a client to view their financial details.</p>
-    </div>
+    <script>
+        function enterDashboard() {
+            window.location.href = "dashboard.html";
+        }
+    </script>
 
-    <script src="script.js"></script>
 </body>
 </html>
