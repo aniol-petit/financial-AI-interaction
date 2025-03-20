@@ -18,6 +18,7 @@
         <div class="client-info">
             <p><strong>Age:</strong> <span id="client-age"></span></p>
             <p><strong>Net Worth:</strong> <span id="net-worth"></span></p>
+            <p><strong>Invested Amount:</strong> <span id="invested-amount"></span></p>
             <p><strong>Risk Level:</strong> <span id="risk-level"></span></p>
             <p><strong>Financial Goals:</strong> <span id="investment-goals"></span></p>
         </div>
@@ -32,8 +33,8 @@
             </div>
 
             <div class="chart-container">
-                <h2>Portfolio Performance</h2>
-                <canvas id="performanceChart"></canvas>
+                <h2>Asset Allocation</h2>
+                <canvas id="assetChart"></canvas>
             </div>
         </div>
     </div>
@@ -48,14 +49,28 @@
                 document.getElementById("client-age").textContent = `${clientData.age} years`;
                 document.getElementById("risk-level").textContent = clientData.risk;
                 document.getElementById("investment-goals").textContent = clientData.goals;
-                document.getElementById("net-worth").textContent = `$${(Math.random() * 5000000 + 500000).toFixed(2)}`;
+                document.getElementById("net-worth").textContent = clientData["net-worth"];
+                document.getElementById("invested-amount").textContent = clientData["invested-amount"];
 
                 loadPortfolioChart(clientData.portfolio);
-                loadPerformanceChart(clientData.market_trends);
+                loadAssetChart(clientData.investments);
             }
         });
 
-        // Portfolio Breakdown Pie Chart
+        const darkColors = [
+            "#2C3E50", // Dark Blue-Grey
+            "#1F618D", // Deep Navy Blue
+            "#117A65", // Teal Green
+            "#9B59B6", // Muted Purple
+            "#D35400", // Burnt Orange
+            "#C0392B", // Dark Red
+            "#E1B12C", // Rich Gold
+            "#16A085", // Dark Cyan
+            "#34495E", // Steel Blue
+            "#7B241C"  // Dark Burgundy
+        ];
+
+        // Portfolio Breakdown Pie Chart (Asset Classes)
         function loadPortfolioChart(portfolio) {
             const ctx = document.getElementById("portfolioChart").getContext("2d");
             new Chart(ctx, {
@@ -64,7 +79,7 @@
                     labels: portfolio.asset_classes,
                     datasets: [{
                         data: portfolio.allocation,
-                        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"]
+                        backgroundColor: darkColors.slice(0, portfolio.asset_classes.length)
                     }]
                 },
                 options: {
@@ -82,33 +97,28 @@
             });
         }
 
-        // Portfolio Performance Line Chart
-        function loadPerformanceChart(market_trends) {
-            const ctx = document.getElementById("performanceChart").getContext("2d");
+        // Asset Allocation Pie Chart (Individual Assets)
+        function loadAssetChart(investments) {
+            const ctx = document.getElementById("assetChart").getContext("2d");
             new Chart(ctx, {
-                type: "line",
+                type: "pie",
                 data: {
-                    labels: market_trends.dates,
+                    labels: investments.assets,
                     datasets: [{
-                        label: "Portfolio Value",
-                        data: market_trends.values,
-                        borderColor: "#FFD700",
-                        backgroundColor: "rgba(255, 215, 0, 0.2)",
-                        borderWidth: 2,
-                        pointRadius: 4,
-                        pointBackgroundColor: "#FFD700",
-                        fill: true
+                        data: investments.allocation,
+                        backgroundColor: darkColors.slice(0, investments.assets.length)
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    scales: {
-                        x: { ticks: { color: "#FFD700", font: { family: "Times New Roman" } } },
-                        y: { ticks: { color: "#FFD700", font: { family: "Times New Roman" } } }
-                    },
                     plugins: {
-                        legend: { labels: { color: "#FFD700", font: { family: "Times New Roman" } } }
+                        legend: {
+                            labels: {
+                                color: "#FFD700",
+                                font: { size: 14, family: "Times New Roman" }
+                            }
+                        }
                     }
                 }
             });

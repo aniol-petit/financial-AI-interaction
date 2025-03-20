@@ -4,54 +4,55 @@
             "id": "1",
             "name": "John Doe",
             "age": 45,
-            "account_type": "Premium Investor",
-            "bio": "A seasoned investor with a diverse portfolio.",
             "risk": "Moderate",
             "goals": "Retirement Planning",
+            "net-worth": "$133,243,234.83",
+            "invested-amount": "$66,621,617",
             "image": "john.png",
             "portfolio": {
                 "asset_classes": ["Stocks", "Bonds", "Real Estate", "Crypto"],
                 "allocation": [40, 30, 20, 10]
             },
-            "market_trends": {
-                "dates": ["Jan", "Feb", "Mar", "Apr"],
-                "values": [100, 120, 115, 130]
+            "investments": {
+                "assets": ["Apple", "Tesla", "Bitcoin", "Ethereum", "Luxury Apartment - NYC", "Commercial Plaza - LA"],
+                "allocation": [20, 10, 5, 5, 20, 40]                
             }
         },
         {
             "id": "2",
             "name": "Jane Smith",
             "age": 38,
-            "account_type": "High Net Worth",
-            "bio": "Focused on long-term growth and stability.",
             "risk": "Low",
             "goals": "Wealth Preservation",
+            "net-worth": "$48,324,862.24",
+            "invested-amount": "$24,162,431",
             "image": "jane.png",
             "portfolio": {
                 "asset_classes": ["Bonds", "Stocks", "Gold"],
                 "allocation": [50, 30, 20]
             },
-            "market_trends": {
-                "dates": ["Jan", "Feb", "Mar", "Apr"],
-                "values": [95, 110, 102, 108]
+            "investments": {
+                "assets": ["CocaCola", "Johnson & Johnson", "Procter & Gamble", "US Government Bonds", "Corporate Bonds", "Physical Gold", "Gold ETF"],
+                "allocation": [10, 10, 10, 10, 10, 10, 40]
+
             }
         },
         {
             "id": "3",
             "name": "Michael Brown",
             "age": 50,
-            "account_type": "Venture Capitalist",
-            "bio": "A risk-taker investing heavily in emerging markets and startups.",
             "risk": "High",
             "goals": "Aggressive Growth",
+            "net-worth": "$82,856,148.29",
+            "invested-amount": "$41,428,074",
             "image": "michael.png",
             "portfolio": {
                 "asset_classes": ["Tech Startups", "Crypto", "Stocks", "Private Equity"],
                 "allocation": [50, 20, 20, 10]
             },
-            "market_trends": {
-                "dates": ["Jan", "Feb", "Mar", "Apr"],
-                "values": [105, 130, 125, 150]
+            "investments": {
+                "assets": ["Nvidia", "Tesla", "Amazon", "Bitcoin", "Ethereum", "Solana", "SpaceX", "Stripe", "Sequoia Capital Fund", "Andreessen Horowitz Fund"],
+                "allocation": [10, 10, 10, 5, 5, 5, 10, 10, 5, 5]
             }
         }
     ]
