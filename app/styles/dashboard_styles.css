@@ -148,3 +148,27 @@ body {
     margin-right: 5px;
     vertical-align: middle;
 }
+
+
+/* 🔍 SEARCH BAR */
+#search-bar {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #FFD700; /* Yellow Border */
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    background-color: transparent;
+    color: #FFD700; /* Yellow Text */
+    text-align: center;
+    font-family: 'Times New Roman', serif;
+}
+
+#search-bar::placeholder {
+    color: rgba(255, 215, 0, 0.5); /* Lighter Yellow Placeholder */
+}
+
+#search-bar:focus {
+    outline: none;
+    border-color: #ffcc00; /* Brighter Yellow */
+}
