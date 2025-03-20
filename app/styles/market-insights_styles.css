@@ -4,7 +4,7 @@ body {
     text-transform: uppercase;
     margin: 0;
     padding: 0;
-    background: rgba(5, 5, 25, 0.95); /* Dark theme */
+    background: #04071B; /* Darker blue for better contrast */
     color: white;
     display: flex;
     flex-direction: column;
@@ -17,7 +17,7 @@ body {
     border: none;
     color: white;
     padding: 10px 15px;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
@@ -32,66 +32,67 @@ body {
     background: rgba(0, 44, 102, 0.3);
 }
 
-/* WINDOW CONTENT */
-.window-content {
-    text-align: center;
-    margin-top: 100px;
-    width: 90%;
-    max-width: 800px;
-}
-
 /* MARKET INSIGHTS TITLE */
-.window-content h1 {
-    font-size: 36px;
-    color: #FFD700;
-    margin-top: -75px;
-    margin-bottom: 20px;
-}
-
-/* MARKET INSIGHTS SUBTITLE */
-.window-content h2 {
-    font-size: 22px;
-    color: white;
-    margin-bottom: 10px;
+.section-title {
+    font-size: 42px;
+    color: #FFD700; /* Bright yellow */
+    margin-top: 50px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: bold;
 }
 
 /* STOCK GRAPH CONTAINER */
 .stock-graphs {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly; /* Ensures side-by-side alignment */
     align-items: center;
-    gap: 20px;
+    gap: 40px;
     margin-top: 20px;
-    flex-wrap: wrap;
+    width: 80%; /* Ensure full width usage */
+    flex-wrap: nowrap; /* Prevents wrapping */
 }
 
 /* INDIVIDUAL STOCK BOX */
 .stock-box {
-    width: 40%; /* Adjust width for balance */
-    max-width: 300px; /* Limit max width */
+    width: 45%;
+    max-width: 400px; /* Increased size for better visibility */
     text-align: center;
     background-color: rgba(255, 255, 255, 0.05);
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
 }
 
-/* IMAGE SIZE SETTINGS */
+/* ENLARGED IMAGE SIZE */
 .stock-image {
     width: 100%;
-    max-width: 200px; /* Smaller size */
+    max-width: 300px; /* Bigger images */
     height: auto;
     border-radius: 8px;
 }
 
 /* STOCK TITLE (Best/Worst Performing Stock) */
 .stock-title {
-    font-size: 1rem;
-    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #FFD700;
 }
 
 /* STOCK CAPTION */
 .stock-caption {
-    font-size: 0.9rem;
-    margin-top: 5px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 900px) {
+    .stock-graphs {
+        flex-wrap: wrap; /* Stacks graphs vertically on smaller screens */
+    }
+
+    .stock-box {
+        width: 80%; /* Makes sure they take up more space when stacked */
+    }
 }
