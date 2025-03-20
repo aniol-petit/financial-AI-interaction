@@ -4,7 +4,7 @@
     border: none;
     color: white;
     padding: 10px 15px;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
@@ -63,6 +63,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* STOCK IMAGE */
@@ -104,6 +105,7 @@ body {
     line-height: 1.6;
 }
 
+<<<<<<< Updated upstream
 /* BULLET POINTS */
 .bullet {
     color: #FFD700;
@@ -123,4 +125,21 @@ body {
 .client-assets-label {
     color: white;
     font-weight: bold;
+=======
+
+.stock-box:hover {
+    transform: scale(1.20); /* Slightly increase size */
+    box-shadow: 0px 8px 24px rgba(255, 215, 0, 0.5); /* More intense shadow */
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 900px) {
+    .stock-graphs {
+        flex-wrap: wrap; /* Stacks graphs vertically on smaller screens */
+    }
+
+    .stock-box {
+        width: 80%; /* Makes sure they take up more space when stacked */
+    }
+>>>>>>> Stashed changes
 }

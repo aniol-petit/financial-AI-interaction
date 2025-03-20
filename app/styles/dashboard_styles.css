@@ -82,6 +82,113 @@ body {
     color: #FFD700; /* Slightly Brighter Dark Blue */
 }
 
+h2 {
+    margin-left: 75px;
+}
+/* ADD CLIENT "+" ICON */
+.add-client  {
+    font-size: 30px;  
+    font-weight: bold;
+    color: #FFD700;
+    cursor: pointer;
+    margin-left: 65px; 
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
+    background: none;
+}
+
+.add-client:hover::after {
+    content: "Add client"; /* Display message on hover */
+    position: absolute;
+    background-color: none;
+    color: #fff;
+    padding: 10px;
+    font-size: 8px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: -5px;
+    width: max-content;
+    text-align: center;
+}
+
+/* Modal Background */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(5, 5, 25, 0.95);
+    padding: 20px;
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+    z-index: 100;
+    width: 300px;
+    text-align: center;
+}
+
+.modal-content  {
+    width: 90%;
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 14px;
+    border: none;
+    background: transparent;
+    color: #FFD700;
+}
+
+/* Title Styling */
+.modal-content h2 {
+    margin-left: 20px;
+    text-align: center;  /* Center the title */
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #FFD700;  /* Darker text color */
+    font-weight: 600;
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    margin-top: -20px;
+    margin-right: -20px;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Form Elements */
+label {
+    font-size: 16px;
+    color: #FFD700;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #FFD700;
+    outline: none;
+    background: transparent;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Custom File Upload Button */
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #FFD700;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
 /* CLIENT LIST */
 .sidebar ul {
     list-style: none;
