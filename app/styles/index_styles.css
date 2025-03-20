@@ -46,23 +46,25 @@ body {
     z-index: 2;
 }
 
-/* WELCOME TEXT */
+/* WELCOME TEXT - DARKER YELLOW */
 .landing-title {
-    font-size: 60px;
-    font-weight: 900;
-    color: #ffffff; /* Bright white */
+    font-family: 'Times New Roman', serif; /* ✅ Times New Roman */
+    font-size: 60px; /* ✅ Large */
+    font-weight: bold; /* ✅ Bold */
+    color: #FFD700; /* ✅ Darker Yellow (Gold) */
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
-/* START BUTTON */
+/* START BUTTON - YELLOW BACKGROUND, BLACK TEXT */
 .start-button {
-    background: #00D4FF;
+    background: #FFD700; /* ✅ Darker Yellow (Gold) */
     border: none;
-    color: white;
-    padding: 18px 30px;
+    color: black; /* ✅ Black Text */
+    font-family: 'Times New Roman', serif; /* ✅ Times New Roman */
     font-size: 20px;
-    font-weight: bold;
+    font-weight: bold; /* ✅ Bold */
+    padding: 18px 30px;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -70,7 +72,7 @@ body {
 }
 
 .start-button:hover {
-    background: #0099cc;
+    background: #DAA520; /* ✅ Slightly darker gold on hover */
 }
 
 /* CRYPTO TICKER */
@@ -79,7 +81,7 @@ body {
     bottom: 20px;
     width: 100%;
     background: rgba(0, 0, 0, 0.9);
-    color: #00D4FF;
+    color: #FFD700; /* ✅ Crypto Prices in Gold */
     font-size: 16px;
     white-space: nowrap;
     padding: 10px 0;
@@ -88,6 +90,7 @@ body {
     align-items: center;
 }
 
+/* ANIMATION FOR MOVING STOCK PRICES */
 .ticker-content {
     display: flex;
     gap: 30px;
