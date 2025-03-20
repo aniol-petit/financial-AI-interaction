@@ -3,29 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Market Insights</title>
+    <title>Future Projections & What-If Scenarios</title>
     <link rel="stylesheet" href="styles/future-projections_styles.css">
 </head>
 <body>
 
-    <!-- Back to Client Profile Button -->
-    <button class="back-button" onclick="window.location.href='client.html'">←</button>
+    <!-- Back to Dashboard Button -->
+    <button class="back-button" onclick="window.location.href='dashboard.html'">← Back</button>
 
-    <!-- Window Content -->
-    <div class="window-content">
-        <h1>FUTURE PROJECTIONS AND WHAT IF SCENARIOS</h1>
-        <p>This window will display information retrieved via API in the future. For now, it's just a placeholder.</p>
+    <h1>📈 Future Projections & What-If Scenarios</h1>
+
+    <!-- What-If Scenarios Section -->
+    <div class="container">
+        <h2>🔮 What-If Scenarios</h2>
+        <div class="scenario">
+            <h3>📊 Inflation +2%</h3>
+            <p>Inflation rise of 2% may decrease bond prices by 5% and increase gold by 7%.</p>
+        </div>
+        <div class="scenario">
+            <h3>🖥️ Tech Exposure +10%</h3>
+            <p>Increasing tech exposure by 10% could boost portfolio growth by 12% annually.</p>
+        </div>
+        <div class="scenario">
+            <h3>📉 Market Crash -20%</h3>
+            <p>A 20% market crash may result in a 15% portfolio decline, with bonds acting as a hedge.</p>
+        </div>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const clientData = JSON.parse(localStorage.getItem("selectedClient"));
-            if (clientData) {
-                document.querySelector("h1").textContent = `${clientData.name}'s Profile`;
-            }
-        });
-    </script>
-    
 
 </body>
 </html>
