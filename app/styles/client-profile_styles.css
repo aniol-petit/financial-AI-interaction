@@ -1,6 +1,6 @@
 /* GENERAL STYLES */
 body {
-    font-family: 'Times New Roman', serif;
+    font-family: 'Helvetica', serif;
     text-transform: uppercase;
     margin: 0;
     padding: 0;
@@ -79,7 +79,7 @@ body {
 }
 
 span {
-    color: #FFD700;
+    color: #a8a07fd5;
     font-weight: bold;
 }
 /* CHART CONTAINER */
@@ -108,7 +108,7 @@ span {
 h2 {
     color: #FFD700;
     font-size: 20px;
-    font-family: "Arial", sans-serif;
+    font-family: "Helvetica", sans-serif;
     text-align: center;
     margin-bottom: 10px;
 }

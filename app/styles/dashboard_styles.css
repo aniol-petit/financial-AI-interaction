@@ -1,6 +1,6 @@
 /* GENERAL STYLES */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Helvetica', sans-serif;
     margin: 0;
     padding: 0;
     background: url('../assets/texture.png') no-repeat center center fixed;
@@ -38,7 +38,7 @@ body {
     text-transform: uppercase;
     width: 270px;
     background: #002244; /* Even Darker Blue */
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Helvetica', serif;
     color: #FFD700;
     padding: 20px;
     height: 100vh;
@@ -76,7 +76,7 @@ body {
 .sidebar h2 {
     font-size: 22px;
     font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Helvetica', serif;
     margin-bottom: 20px;
     text-align: center;
     color: #FFD700; /* Slightly Brighter Dark Blue */
@@ -120,7 +120,7 @@ body {
     width: 100%;
     background: transparent; /* ✅ No visible bar, only text/icons */
     color: #FFD700; /* ✅ Yellow text */
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Helvetica', Times, serif;
     font-size: 16px;
     white-space: nowrap;
     padding: 10px 0;
@@ -161,7 +161,7 @@ body {
     background-color: transparent;
     color: #FFD700; /* Yellow Text */
     text-align: center;
-    font-family: 'Times New Roman', serif;
+    font-family: 'Helvetica', serif;
 }
 
 #search-bar::placeholder {
@@ -208,7 +208,7 @@ body {
     border: none;
     padding: 10px;
     color: #FFD700;
-    font-family: 'Times New Roman', serif;
+    font-family: 'Helvetica', serif;
     cursor: pointer;
     text-align: left;
 }

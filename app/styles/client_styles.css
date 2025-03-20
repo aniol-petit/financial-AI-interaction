@@ -1,6 +1,6 @@
 /* GENERAL STYLES */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Helvetica', sans-serif;
     margin: 0;
     padding: 0;
     background: rgba(5, 5, 25, 0.95); /* ✅ Dark Navy Blue */
@@ -19,7 +19,7 @@ body {
     font-size: 15px;
     font-weight: bold;
     border-radius: 5px;
-    cursor: pointer;
+    cursor: poHelvetica;
     position: absolute;
     top: 20px;
     left: 20px;
@@ -60,9 +60,9 @@ body {
     text-align: left;
 }
 
-/* CLIENT NAME & AGE - Times New Roman, Yellow */
+/* CLIENT NAME & AGE - Helvetica, Yellow */
 .client-name, .client-age {
-    font-family: 'Times New Roman', serif; /* ✅ Times New Roman */
+    font-family: 'Helvetica', serif; /* ✅ Helvetica */
     font-size: 36px;
     font-weight: bold;
     color: #FFD700; /* ✅ Yellow */
@@ -94,7 +94,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    cursor: poHelvetica;
     transition: background-color 0.3s ease, transform 0.2s ease-in-out;
     height: 150px;
     color: #FFD700; /* ✅ Yellow */
@@ -109,7 +109,7 @@ body {
 
 /* CLIENT WINDOW TEXT */
 .client-window h2 {
-    font-family: 'Times New Roman', serif; /* ✅ Times New Roman */
+    font-family: 'Helvetica', serif; /* ✅ Helvetica */
     font-size: 24px;
     font-weight: bold;
 }
