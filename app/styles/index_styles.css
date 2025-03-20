@@ -50,7 +50,7 @@ body {
 .landing-title {
     font-family: 'Times New Roman', serif; /* ✅ Times New Roman */
     font-size: 60px; /* ✅ Large */
-    font-weight: bold; /* ✅ Bold */
+    font-weight: 900; /* ✅ Bold */
     color: #FFD700; /* ✅ Darker Yellow (Gold) */
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -60,7 +60,7 @@ body {
 .start-button {
     background: #FFD700; /* ✅ Darker Yellow (Gold) */
     border: none;
-    color: black; /* ✅ Black Text */
+    color: #002244; /* ✅ Black Text */
     font-family: 'Times New Roman', serif; /* ✅ Times New Roman */
     font-size: 20px;
     font-weight: bold; /* ✅ Bold */
@@ -75,13 +75,14 @@ body {
     background: #DAA520; /* ✅ Slightly darker gold on hover */
 }
 
-/* CRYPTO TICKER */
+/* CRYPTO TICKER (Transparent Background) */
 .crypto-ticker {
     position: fixed;
     bottom: 20px;
     width: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    color: #FFD700; /* ✅ Crypto Prices in Gold */
+    background: transparent; /* ✅ No visible bar, only text/icons */
+    color: #FFD700; /* ✅ Yellow text */
+    font-family: 'Times New Roman', serif;
     font-size: 16px;
     white-space: nowrap;
     padding: 10px 0;

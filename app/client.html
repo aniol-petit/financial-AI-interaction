@@ -25,8 +25,8 @@
 
     <!-- Client Information Windows -->
     <div class="client-windows">
-        <div class="client-window" onclick="window.location.href='window1.html'">
-            <h2>Window 1</h2>
+        <div class="client-window" onclick="window.location.href='client-profile.html'">
+            <h2>CLIENT PROFILE</h2>
         </div>
         <div class="client-window" onclick="window.location.href='window2.html'">
             <h2>Window 2</h2>
@@ -40,22 +40,16 @@
     </div>
 
     <script>
-        // Get client data from URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const clientId = urlParams.get('client');
-
-        fetch("data/clients.json")
-            .then(response => response.json())
-            .then(data => {
-                const client = data.clients.find(c => c.id === clientId);
-
-                if (client) {
-                    document.getElementById("client-name").textContent = client.name;
-                    document.getElementById("client-image").src = `assets/${client.image}`;
-                    document.getElementById("client-age").textContent = `Age: ${client.age}`;  <!-- Added age data -->
-                }
-            })
-            .catch(error => console.error("Error loading client data:", error));
+        document.addEventListener("DOMContentLoaded", function () {
+        const clientData = JSON.parse(localStorage.getItem("selectedClient"));
+        if (clientData) {
+            document.getElementById("client-name").textContent = clientData.name;
+            document.getElementById("client-image").src = `assets/${clientData.image}`;
+            document.getElementById("client-age").textContent = `Age: ${clientData.age}`;
+        } else {
+            console.error("No client data found.");
+        }
+    });
     </script>
 
 </body>

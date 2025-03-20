@@ -43,7 +43,16 @@
 
     <script>
         function redirectToClient(clientId) {
-            window.location.href = `client.html?client=${clientId}`;
+            fetch("data/clients.json")
+            .then(response => response.json())
+            .then(data => {
+                const client = data.clients.find(c => c.id === clientId);
+                if (client) {
+                    localStorage.setItem("selectedClient", JSON.stringify(client));
+                    window.location.href = `client.html`;
+                }
+            })
+            .catch(error => console.error("Error loading client data:", error));
         }
     </script>
 

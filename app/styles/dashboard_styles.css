@@ -35,9 +35,11 @@ body {
 
 /* SIDEBAR */
 .sidebar {
+    text-transform: uppercase;
     width: 270px;
     background: rgba(5, 5, 25, 0.95); /* Even Darker Blue */
-    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    color: #FFD700;
     padding: 20px;
     height: 100vh;
     display: flex;
@@ -66,7 +68,7 @@ body {
 }
 
 .back-button:hover {
-    background: #002a66;
+    background: rgba(0, 44, 102, 0.3);
 }
 
 
@@ -74,9 +76,10 @@ body {
 .sidebar h2 {
     font-size: 22px;
     font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
     margin-bottom: 20px;
     text-align: center;
-    color: #0056b3; /* Slightly Brighter Dark Blue */
+    color: #FFD700; /* Slightly Brighter Dark Blue */
 }
 
 /* CLIENT LIST */
@@ -110,13 +113,14 @@ body {
     object-fit: cover;
 }
 
-/* CRYPTO TICKER (SAME AS LANDING PAGE) */
+/* CRYPTO TICKER (Transparent Background) */
 .crypto-ticker {
     position: fixed;
     bottom: 20px;
     width: 100%;
-    background: #002a66; /* 🔵 Dark Blue Background */
-    color: white; /* 🔳 White Text */
+    background: transparent; /* ✅ No visible bar, only text/icons */
+    color: #FFD700; /* ✅ Yellow text */
+    font-family: 'Times New Roman', Times, serif;
     font-size: 16px;
     white-space: nowrap;
     padding: 10px 0;
@@ -125,7 +129,7 @@ body {
     align-items: center;
 }
 
-/* MOVING TICKER ANIMATION */
+/* ANIMATION FOR MOVING STOCK PRICES */
 .ticker-content {
     display: flex;
     gap: 30px;
@@ -137,7 +141,7 @@ body {
     to { transform: translateX(-100%); }
 }
 
-/* TICKER LOGOS */
+/* CRYPTO LOGOS */
 .crypto-logo {
     height: 18px;
     width: 18px;
