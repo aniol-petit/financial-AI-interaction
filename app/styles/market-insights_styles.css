@@ -3,20 +3,20 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background: rgba(5, 5, 25, 0.95); /* ✅ Dark Navy Blue */
+    background: #121212; /* Dark theme */
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* BACK BUTTON (WHITE ARROW, NO BACKGROUND) */
+/* BACK BUTTON */
 .back-button {
     background: none;
     border: none;
     color: white;
     padding: 10px 15px;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
@@ -24,11 +24,11 @@ body {
     top: 20px;
     left: 20px;
     z-index: 10;
-    transition: opacity 0.3s ease-in-out;
+    transition: background 0.3s ease;
 }
 
 .back-button:hover {
-    background: rgba(0, 44, 102, 0.3)
+    background: #0099cc;
 }
 
 /* WINDOW CONTENT */
@@ -49,11 +49,4 @@ body {
     color: #cccccc;
     width: 80%;
     margin: 0 auto;
-}
-
-.window-content {
-    font-family: 'Times New Roman', serif; /* ✅ Times New Roman */
-    font-size: 36px;
-    font-weight: bold;
-    color: #FFD700; /* ✅ Yellow */
 }
