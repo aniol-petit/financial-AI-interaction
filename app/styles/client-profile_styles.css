@@ -1,11 +1,11 @@
 /* GENERAL STYLES */
 body {
-    font-family: 'Helvetica', serif;
-    text-transform: uppercase;
+    font-family: 'Arial Narrow', sans-serif;
+    text-transform: capitalize;
     margin: 0;
     padding: 0;
-    background: rgba(5, 5, 25, 0.95); /* Dark Navy Blue */
-    color: #FFD700; /* Yellow */
+    background: #fff; 
+    color: #fff; 
     display: flex;
     height: 100vh;
 }
@@ -13,7 +13,7 @@ body {
 /* SIDEBAR (Client Information) */
 .sidebar {
     width: 260px;
-    background: rgba(5, 5, 25, 0.95);
+    background: #cb3116;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -27,7 +27,7 @@ body {
     border: none;
     color: white;
     padding: 10px 15px;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
@@ -39,14 +39,14 @@ body {
 }
 
 .back-button:hover {
-    background: rgba(0, 44, 102, 0.3);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 /* CLIENT IMAGE */
 .client-image {
     border-radius: 50%;
-    width: 90px;
-    height: 90px;
+    width: 120px;
+    height: 120px;
     object-fit: cover;
     margin: 10px 0;
     border: none;
@@ -69,6 +69,7 @@ body {
     align-items: center;
     flex-direction: column;
     padding: 20px;
+    color: #fff;
 }
 
 /* CHART WRAPPER (NEW) */
@@ -81,17 +82,15 @@ body {
 }
 
 span {
-    color: #a8a07fd5;
-    font-weight: bold;
+    color: #fff;
 }
 /* CHART CONTAINER */
 .chart-container {
-    width: 45%;
+    width: 40%;
     height: 400px;
-    background: #1E1E2F;
+    background: transparent;
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 0px 4px 12px rgba(255, 215, 0, 0.5);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,15 +101,15 @@ span {
 /* When hovering over the chart container */
 .chart-container:hover {
     transform: scale(1.20); /* Slightly increase size */
-    box-shadow: 0px 8px 24px rgba(255, 215, 0, 0.5); /* More intense shadow */
+    box-shadow: 0px 4px 4px #cb3116; /* More intense shadow */
 }
 
-
-
 h2 {
-    color: #FFD700;
+    color: #000;
     font-size: 20px;
-    font-family: "Helvetica", sans-serif;
+    font-family: 'Arial Narrow', sans-serif;
+    text-transform: capitalize;
+    font-weight: bold;
     text-align: center;
     margin-bottom: 10px;
 }

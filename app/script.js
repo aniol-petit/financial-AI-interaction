@@ -58,55 +58,42 @@ function redirectToClient(clientId) {
     }
 }
 
-// ✅ Open Edit Client Form (Only Shows When Clicking "Edit Client")
+// Function to open the Edit Client modal
 function editClient(clientId) {
-    let clients = JSON.parse(localStorage.getItem("clients"));
-    let client = clients.find(c => c.id === clientId);
+    const editModal = document.getElementById("editClientModal");
+    const clientElement = document.querySelector(`.client-item[data-client-id="${clientId}"]`);
+    const clientName = clientElement.querySelector(".client-name").textContent;
 
-    if (client) {
-        document.getElementById("edit-name").value = client.name;
-        document.getElementById("edit-age").value = client.age;
-        document.getElementById("edit-risk").value = client.risk;
-        document.getElementById("edit-goals").value = client.goals;
+    // Set the client data in the input field
+    document.getElementById("editClientName").value = clientName;
+    
+    // Store client ID in the modal for later use
+    editModal.setAttribute("data-client-id", clientId);
 
-        document.getElementById("edit-client-modal").classList.remove("hidden");
-        document.getElementById("edit-client-modal").setAttribute("data-client-id", clientId);
-    }
+    // Show the modal
+    editModal.style.display = "block";
 }
 
-// ✅ Save Client Changes & Update Local Storage
+// Function to save edited client details
 function saveClientChanges() {
-    let clientId = document.getElementById("edit-client-modal").getAttribute("data-client-id");
-    let clients = JSON.parse(localStorage.getItem("clients"));
+    const editModal = document.getElementById("editClientModal");
+    const clientId = editModal.getAttribute("data-client-id");
+    const newName = document.getElementById("editClientName").value;
 
-    let clientIndex = clients.findIndex(c => c.id === clientId);
-    if (clientIndex !== -1) {
-        clients[clientIndex].name = document.getElementById("edit-name").value;
-        clients[clientIndex].age = document.getElementById("edit-age").value;
-        clients[clientIndex].risk = document.getElementById("edit-risk").value;
-        clients[clientIndex].goals = document.getElementById("edit-goals").value;
+    // Update the client name in the list
+    const clientElement = document.querySelector(`.client-item[data-client-id="${clientId}"]`);
+    clientElement.querySelector(".client-name").textContent = newName;
 
-        localStorage.setItem("clients", JSON.stringify(clients)); // Save updates
-        loadClients(); // Refresh list with updated names
-        closeEditModal();
-    }
+    // Close the modal
+    closeEditModal();
 }
 
-// ✅ Close Edit Client Form
+// Function to close the Edit Client modal
 function closeEditModal() {
-    document.getElementById("edit-client-modal").classList.add("hidden");
+    document.getElementById("editClientModal").style.display = "none";
 }
 
-// ✅ Delete Client (Removes from Local Storage & UI)
-function deleteClient(clientId) {
-    let confirmation = confirm("Are you sure you want to delete this client?");
-    if (confirmation) {
-        let clients = JSON.parse(localStorage.getItem("clients"));
-        clients = clients.filter(client => client.id !== clientId);
-        localStorage.setItem("clients", JSON.stringify(clients));
-        loadClients();
-    }
-}
+
 
 // ✅ Toggle Options Menu
 function toggleMenu(event, menuId) {
@@ -118,7 +105,10 @@ function toggleMenu(event, menuId) {
     menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
 
-// ✅ Click Outside to Close Menus
-document.addEventListener("click", () => {
-    document.querySelectorAll('.menu-dropdown').forEach(menu => menu.style.display = "none");
+// Ensure the modal is closed when clicking outside of it
+window.addEventListener("click", function(event) {
+    const editModal = document.getElementById("editClientModal");
+    if (event.target === editModal) {
+        closeEditModal();
+    }
 });
