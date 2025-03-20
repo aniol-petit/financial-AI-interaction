@@ -1,9 +1,10 @@
 /* GENERAL STYLES */
 body {
-    font-family: 'Georgia', sans-serif;
+    font-family: 'Arial Narrow';
+    text-transform: capitalize;
     margin: 0;
     padding: 0;
-    background: black;
+    background: grey;
     color: white;
     overflow: hidden;
 }
@@ -17,6 +18,7 @@ body {
     height: 100%;
     z-index: -1;
     overflow: hidden;
+    filter: blur(6px);
 }
 
 .background-gif {
@@ -39,6 +41,7 @@ body {
 /* LANDING PAGE CONTENT (PERFECT CENTER) */
 .landing-content {
     text-align: center;
+    text-transform: capitalize;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -48,23 +51,24 @@ body {
 
 /* WELCOME TEXT - DARKER YELLOW */
 .landing-title {
-    font-family: 'Georgia', serif;
+    font-family: 'Arial Narrow', serif;
     font-size: 60px; 
     font-weight: 900; 
-    color: #FFD700;
-    text-transform: uppercase;
+    color: #FFFFFF;
+    text-transform: capitalize;
     letter-spacing: 2px;
 }
 
 /* START BUTTON - YELLOW BACKGROUND, BLACK TEXT */
 .start-button {
-    background: #FFD700; 
+    background: #cb3116; 
     border: none;
-    color: #002244; 
-    font-family: 'Georgia', serif; 
+    color: #FFFFFF; 
+    font-family: 'Arial Narrow';
+    text-transform: uppercase;
     font-size: 20px;
     font-weight: bold; 
-    padding: 18px 30px;
+    padding: 18px 20px;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -72,7 +76,8 @@ body {
 }
 
 .start-button:hover {
-    background: #DAA520; /* ✅ Slightly darker gold on hover */
+    transform: scale(1.1);
+    box-shadow: 0 0 10px (0, 0, 0, 0.5);
 }
 
 /* CRYPTO TICKER (Transparent Background) */
@@ -81,9 +86,10 @@ body {
     bottom: 20px;
     width: 100%;
     background: transparent; /* ✅ No visible bar, only text/icons */
-    color: #FFD700; /* ✅ Yellow text */
-    font-family: 'Times New Roman', serif;
+    color: #FFF; /* ✅ Yellow text */
+    font-family: 'Arial Narrow';
     font-size: 16px;
+    font-weight: bold;
     white-space: nowrap;
     padding: 10px 0;
     display: flex;
