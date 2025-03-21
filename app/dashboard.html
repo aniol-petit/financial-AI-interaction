@@ -80,13 +80,34 @@
     </div>
 
     <!-- Edit Client Modal (Initially Hidden) -->
-    <div id="editClientModal" class="modal hidden">
+    <div id="editClientModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeEditModal()">&times;</span>
             <h2>Edit Client</h2>
             <form id="editClientForm">
                 <label for="editClientName">Name:</label>
-                <input type="text" id="editClientName" name="editClientName" required>
+                <input type="text" id="editClientName" name="editClientName" required><br><br>
+
+                <label for="editClientAge">Age:</label>
+                <input type="number" id="editClientAge" name="editClientAge" required><br><br>
+
+                <label for="editClientRisk">Risk Tolerance:</label>
+                <select id="editClientRisk" name="editClientRisk" required>
+                    <option value="Low">Low</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="High">High</option>
+                </select><br><br>
+
+                <label for="editClientGoals">Financial Goals:</label>
+                <select id="editClientGoals" name="editClientGoals" required>
+                    <option value="Retirement Planning">Retirement Planning</option>
+                    <option value="Wealth Preservation">Wealth Preservation</option>
+                    <option value="Aggressive Growth">Aggressive Growth</option>
+                </select><br><br>
+                
+
+                <label for="editClientFiles" class="custom-file-upload">Update Files:</label>
+                <input type="file" id="editClientFiles" name="editClientFiles" multiple><br><br>
                 <button type="button" onclick="saveClientChanges()">Save Changes</button>
             </form>
         </div>
@@ -137,30 +158,33 @@
             menu.style.display = menu.style.display === "block" ? "none" : "block";
         }
 
+        var editModal = document.getElementById("editClientModal");
+
         function editClient(clientId) {
+            editModal.style.display = "block";
             fetch("data/clients.json")
             .then(response => response.json())
             .then(data => {
                 const client = data.clients.find(c => c.id === clientId);
                 if (client) {
-                    document.getElementById("edit-name").value = client.name;
-                    document.getElementById("edit-age").value = client.age;
-                    document.getElementById("edit-risk").value = client.risk;
-                    document.getElementById("edit-goals").value = client.goals;
+                    document.getElementById("editClientName").value = client.name;
+                    document.getElementById("editClientAge").value = client.age;
+                    document.getElementById("editClientRisk").value = client.risk;
+                    document.getElementById("editClientGoals").value = client.goals;
 
-                    document.getElementById("edit-client-modal").classList.remove("hidden");
-                    document.getElementById("edit-client-modal").setAttribute("data-client-id", clientId);
+                    document.getElementById("editClientForm").setAttribute("data-client-id", clientId);
                 }
             })
             .catch(error => console.error("Error loading client data:", error));
         }
 
         function saveClientChanges() {
-            let clientId = document.getElementById("edit-client-modal").getAttribute("data-client-id");
-            let newName = document.getElementById("edit-name").value;
-            let newAge = document.getElementById("edit-age").value;
-            let newRisk = document.getElementById("edit-risk").value;
-            let newGoals = document.getElementById("edit-goals").value;
+            let clientId = document.getElementById("editClientForm").getAttribute("data-client-id");
+            let newName = document.getElementById("editClientName").value;
+            // Get other updated values if necessary
+            let newAge = document.getElementById("editClientAge").value;
+            let newRisk = document.getElementById("editClientRisk").value;
+            let newGoals = document.getElementById("editClientGoals").value;
 
             let client = document.querySelector(`.client-item[data-client-id="${clientId}"]`);
             client.querySelector(".client-name").textContent = newName;
@@ -169,7 +193,7 @@
         }
 
         function closeEditModal() {
-            document.getElementById("edit-client-modal").classList.add("hidden");
+            editModal.style.display = "none";
         }
 
         function deleteClient(clientId) {

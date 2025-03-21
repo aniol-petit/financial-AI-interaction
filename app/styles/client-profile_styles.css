@@ -4,7 +4,7 @@ body {
     text-transform: capitalize;
     margin: 0;
     padding: 0;
-    background: #fff; 
+    background: #f0f0f0; 
     color: #fff; 
     display: flex;
     height: 100vh;
@@ -88,7 +88,8 @@ span {
 .chart-container {
     width: 40%;
     height: 400px;
-    background: transparent;
+    background: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     padding: 20px;
     display: flex;
