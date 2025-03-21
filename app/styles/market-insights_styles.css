@@ -73,7 +73,7 @@ body {
 /* STOCK IMAGE */
 .stock-image {
     width: 100%;
-    max-width: 250px; /* Adjusted for better fit */
+    max-width: 500px; /* Adjusted for better fit */
     height: auto;
     border-radius: 8px;
 }
