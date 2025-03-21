@@ -91,6 +91,9 @@
                 <label for="editClientAge">Age:</label>
                 <input type="number" id="editClientAge" name="editClientAge" required><br><br>
 
+                <label for="editClientWorth">Net Worth:</label>
+                <input type="text" id="editClientWorth" name="editClientWorth" required><br><br>
+
                 <label for="editClientRisk">Risk Tolerance:</label>
                 <select id="editClientRisk" name="editClientRisk" required>
                     <option value="Low">Low</option>
@@ -169,6 +172,7 @@
                 if (client) {
                     document.getElementById("editClientName").value = client.name;
                     document.getElementById("editClientAge").value = client.age;
+                    document.getElementById("editClientWorth").value = client["net-worth"];
                     document.getElementById("editClientRisk").value = client.risk;
                     document.getElementById("editClientGoals").value = client.goals;
 
