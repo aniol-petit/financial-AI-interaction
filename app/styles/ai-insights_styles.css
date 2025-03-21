@@ -51,6 +51,7 @@ body {
 .insight-box, .past-decisions-box {
     background: #fff;
     padding: 20px;
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     margin-bottom: 20px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -91,6 +92,3 @@ body {
     transition: background 0.3s ease-in-out;
 }
 
-.past-decisions-list li:hover {
-    background: #cb3116;
-}
